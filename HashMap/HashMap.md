@@ -127,9 +127,9 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ### tableSizeFor
 
 ```
-    保证初始化大小始终为>=cap的2的幂
-    5 -> 8
-    11 -> 16
+    //保证初始化大小始终为>=cap的2的幂
+    //5 -> 8
+    //11 -> 16
     static final int tableSizeFor(int cap) {
         int n = cap - 1;
         n |= n >>> 1;
@@ -356,12 +356,14 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ```
 
 ### 线程安全问题
-#### resize
+#### resize/put/get
 ```
 java7中，链表采用头插法，如果多线程同时向需要扩容的hashmap中插入数据，
 如果在某一线程在resize时挂起：
     1.原本期望的A->B->C,有可能根据扩容后length变化导致重新计算的hash值与之前不同，从而C到了新的节点上；
     2.同上，原本的A->B,可能变成B->A,那多线程调度结束，就有可能变成 B->A->B，无限循环
     
-java8中，虽然用尾插法，且会保持原有链表顺序，但是对于put/get方法，由于没有加锁，还是可能会出现put/get取值不一的情况。此时就要引入juc包中的conCurrentHashMap了。
+java8中，采用尾插法，且会保持原有链表顺序。
+但是对于put/get方法，由于没有加锁，还是可能会出现put/get取值不一的情况。
+此时就要引入juc包中的conCurrentHashMap了。但是对于put/get方法，由于没有加锁，还是可能会出现put/get取值不一的情况。此时就要引入juc包中的conCurrentHashMap了。
 ```
