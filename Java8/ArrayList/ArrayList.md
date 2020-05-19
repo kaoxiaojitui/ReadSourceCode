@@ -147,7 +147,7 @@ public class ArrayList<E> extends AbstractList<E>
             System.arraycopy(elementData, index+1, elementData, index,
                              numMoved);
         //todo -- 这里为何可以让GC工作需要后续研究
-        //20200519 -- 与人探讨了一下，可能是ArrayList对象本身对内部数据也是引用关系，当数据被置为null，则不再引用，GC启动。
+        //20200519 -- ArrayList底层是通过数组实现，即ArrayList对象本身对内部数组数据也是引用关系，当数据被置为null，则不再引用，GC启动。
         elementData[--size] = null; // clear to let GC do its work
 
         return oldValue;
@@ -187,13 +187,14 @@ public class ArrayList<E> extends AbstractList<E>
     private void grow(int minCapacity) {
         // overflow-conscious code
         int oldCapacity = elementData.length;
-        //1.5倍扩容
+        //1.5倍扩容，且返回值为int！
         int newCapacity = oldCapacity + (oldCapacity >> 1);
         if (newCapacity - minCapacity < 0)
             newCapacity = minCapacity;
         if (newCapacity - MAX_ARRAY_SIZE > 0)
             newCapacity = hugeCapacity(minCapacity);
         // minCapacity is usually close to size, so this is a win:
+        //实际扩容还是通过Arrays.copyOf复制数组
         //这里是返回了一个新的数组对象，并把新数组对象的引用给到elementData
         elementData = Arrays.copyOf(elementData, newCapacity);
     }
