@@ -147,6 +147,7 @@ public class ArrayList<E> extends AbstractList<E>
             System.arraycopy(elementData, index+1, elementData, index,
                              numMoved);
         //todo -- 这里为何可以让GC工作需要后续研究
+        //20200519 -- 与人探讨了一下，可能是ArrayList对象本身对内部数据也是引用关系，当数据被置为null，则不再引用，GC启动。
         elementData[--size] = null; // clear to let GC do its work
 
         return oldValue;
