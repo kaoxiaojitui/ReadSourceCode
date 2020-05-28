@@ -1,7 +1,7 @@
 # ReadSourceCode
 记录学习点滴
 ```
-Java的基本数据类型：
+基本数据类型：
 	字符型：String, Char
 	数值型：int, long, short
 	浮点型：float, double
@@ -14,7 +14,11 @@ String与StringBuffer与StringBuilder的区别与使用情况
 常用的集合类型：ArrayList, HashMap
 ```
 ```
+锁：synchronized, lock, CAS
+```
+```
 多线程：Thread, Runnable, Callable, ThreadPool
+线程池：ThreadPoolExecutor, ScheduledThreadPoolExecutor, AQS
 ```
 ```
 线程安全的集合类型及juc并发包：CopyOnWriteArrayList, ConCurrentHashMap, JUC包相关内容
