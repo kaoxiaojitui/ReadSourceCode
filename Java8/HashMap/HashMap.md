@@ -183,6 +183,10 @@ public class HashMap<K,V> extends AbstractMap<K,V>
             n = (tab = resize()).length;
         //如果hash运算后发现节点为null，则会新建一个节点给到对应hash的数组位置
         if ((p = tab[i = (n - 1) & hash]) == null)
+            //如果多线程情况下，某一个线程在执行完if判断后进入if结构内时被挂起：
+            //线程A被挂起，线程B此时也判断发现对应hash值没有Node，则也会直接新建一个Node并赋值
+            //然而，当线程B执行完后，线程A重新获得资源执行，则不会重新判断hash值对应节点是否有值，而是直接创建新节点覆盖之前节点
+            //综上所述，多线程操作下，可能出现节点值被覆盖的情况，故线程不安全
             tab[i] = newNode(hash, key, value, null);
         //如果已经存在该节点
         else {
