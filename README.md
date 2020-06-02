@@ -2,23 +2,27 @@
 记录学习点滴
 ```
 基本数据类型：
-	字符型：String, Char
+	字节型：byte
+	字符型：char
 	数值型：int, long, short
 	浮点型：float, double
 	布尔型：boolean
 ```
 ```
-String与StringBuffer与StringBuilder的区别与使用情况
+包装类及自动装箱/拆箱(编译时)
+```
+```
+String与StringBuffer与StringBuilder的区别与使用场景
 ```
 ```
 常用的集合类型：ArrayList, HashMap
 ```
 ```
-锁：synchronized, lock, CAS, AQS
-```
-```
-多线程：Thread, Runnable, Callable, ThreadPool
+线程/多线程：Thread, Runnable, Callable, ThreadPool
 线程池：ThreadPoolExecutor, ScheduledThreadPoolExecutor
+```
+```
+锁：synchronized(JVM), lock(ReentrantLock, CountDownLatch等), CAS, AQS
 ```
 ```
 线程安全的集合类型及juc并发包：CopyOnWriteArrayList, ConCurrentHashMap, JUC包相关内容
