@@ -14,11 +14,11 @@ String与StringBuffer与StringBuilder的区别与使用情况
 常用的集合类型：ArrayList, HashMap
 ```
 ```
-锁：synchronized, lock, CAS
+锁：synchronized, lock, CAS, AQS
 ```
 ```
 多线程：Thread, Runnable, Callable, ThreadPool
-线程池：ThreadPoolExecutor, ScheduledThreadPoolExecutor, AQS
+线程池：ThreadPoolExecutor, ScheduledThreadPoolExecutor
 ```
 ```
 线程安全的集合类型及juc并发包：CopyOnWriteArrayList, ConCurrentHashMap, JUC包相关内容
