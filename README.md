@@ -18,8 +18,8 @@ String与StringBuffer与StringBuilder的区别与使用场景
 常用的集合类型：ArrayList(复制新数组), HashMap(kv, hash散落, 红黑树O(n)=log(n))
 ```
 ```
-线程/多线程：Thread, Runnable(return void, no exception throws), Callable(return Object, throws exception), ThreadPool
-线程池：ThreadPoolExecutor(内部执行过程，自定义线程池-BlockingQueue, ThreadFactory, RejectedExecutionHandler), ScheduledThreadPoolExecutor
+线程/多线程：Thread, Runnable(return void, not throws exception), Callable(return Object, throws exception), ThreadPool
+线程池：ThreadPoolExecutor(内部执行过程，自定义线程池-BlockingQueue, ThreadFactory, RejectedExecutionHandler), ScheduledThreadPoolExecutor(带定时任务功能的线程池)
 ```
 ```
 锁：synchronized(JVM), lock(ReentrantLock, CountDownLatch等), CAS(轻量级锁,结合自旋), AQS(实现锁的基础)
