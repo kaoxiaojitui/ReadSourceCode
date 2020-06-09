@@ -23,12 +23,13 @@ String与StringBuffer与StringBuilder的区别与使用场景
 ```
 线程/多线程：Thread, Runnable(return void, not throws exception), Callable(return Object, throws exception), ThreadPool
 线程池：ThreadPoolExecutor(内部执行过程，自定义线程池-BlockingQueue, ThreadFactory, RejectedExecutionHandler), ScheduledThreadPoolExecutor(带定时任务功能的线程池)
+为了保证线程安全，无法通过注解向线程注入对象，需要自行通过ApplicationContext获取Bean！
 ```
 ```
 锁：synchronized(JVM), lock(ReentrantLock, CountDownLatch等), CAS(轻量级锁,结合自旋), AQS(实现锁的基础)
 ```
 ```
-线程安全的集合类型及juc并发包：CopyOnWriteArrayList(写时复制), ConCurrentHashMap(线程安全实现原理,锁的粒度,kv不可存null), JUC包相关内容
+线程安全的集合类型及juc并发包：CopyOnWriteArrayList(写时复制, 读多写少), ConCurrentHashMap(线程安全实现原理,锁的粒度,kv不可存null), JUC包相关内容
 简单阅读了ConCurrentHashMap的源码，才理解了别人口中所说的"抢锁(初始化table)，自旋(未抢到则等待其他线程完全init)，CAS(若当前Node为null则直接CAS插入数据)，synchronize(主动加锁完成对链表or树的插入操作)"
 ```
 ```
