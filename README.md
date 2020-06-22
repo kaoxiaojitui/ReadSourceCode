@@ -44,11 +44,11 @@ JVM工具集-JMC与jsp,jstack命令
 ```
 ```
 Spring:IOC, AOP实现及应用
-```
 IOC理念对应的DI实现。
 Spring创建bean的BeanFactory(Spring默认)和ApplicationContext(基于用户使用)的过程，以及过程中通过三级缓存&分离创建、属性注入来解决单例模式下基于setter的循环依赖
 
 AOP则需要理解代理模式，可用于方法前后日志输出和异常处理等(例如spring中的事务注解@Transactional底层通过aop实现)
+```
 ```
 SpringBoot：自动装配原理，自定义starter
 ```
