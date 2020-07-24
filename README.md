@@ -43,11 +43,7 @@ synchronized(JVM锁), lock(ReentrantLock, CountDownLatch等), CAS(轻量级锁,�
 ```
 ## JVM入门
 ```
-
-```
-## JVM工具集-JMC与jsp,jstack命令
-```
-
+Java 内存模型， JVM 内部结构， 垃圾回收机制， 性能调优及监测工具
 ```
 ## Spring:IOC, AOP实现及应用
 ```
